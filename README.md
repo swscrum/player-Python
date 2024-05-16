@@ -2,6 +2,11 @@
 
 ## How it works
 
+### Install the dependencies
+```bash
+pip3 install -r requirements.txt
+```
+
 ### Run it locally
 Run the player directly:
 ```bash
