@@ -4,7 +4,16 @@ class BaseLevel:
     spawnRate: int      # number uf bits spawned per tick
 
 
-    def __init__(self, maxPopulation:int, upgradeCost:int, spawnRate:int):
-        self.maxPopulation = maxPopulation
-        self.upgradeCost = upgradeCost 
-        self.spawnRate = spawnRate
+    @classmethod
+    def fromAttributes(cls, maxPopulation:int, upgradeCost:int, spawnRate:int):
+        baselevel = {
+            'maxPopulation': maxPopulation,
+            'upgradeCost': upgradeCost,
+            'spawnRate': spawnRate
+        }
+        return cls(baselevel)
+
+    def __init__(self, baselevel: dict):
+        self.maxPopulation = baselevel['maxPopulation']
+        self.upgradeCost = baselevel['upgradeCost']
+        self.spawnRate = baselevel['spawnRate']
