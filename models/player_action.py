@@ -11,3 +11,10 @@ class PlayerAction:
 
     def __str__(self) -> str:
         return f"({self.src}) -> ({self.dest}): ({self.amount})"
+
+    def serialize(self):
+        return {
+            'src': self.src,
+            'dest': self.dest,
+            'amount': self.amount
+        }
