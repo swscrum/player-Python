@@ -1,4 +1,6 @@
-from position import Position
+
+from models.position import Position
+
 
 class Base:
     position: Position      # position of the base

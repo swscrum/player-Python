@@ -1,6 +1,6 @@
 from uuid import UUID
-from player_action import PlayerAction
-from progress import Progress
+from models.player_action import PlayerAction
+from models.progress import Progress
 
 class BoardAction(PlayerAction):
     uuid: UUID          # uuid of the action

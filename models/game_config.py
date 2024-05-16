@@ -1,4 +1,4 @@
-from base_level import BaseLevel
+from models.base_level import BaseLevel
 
 class PathsConfig:
     gracePeriod: int    # time until groups of bits take damage
