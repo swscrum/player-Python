@@ -9,9 +9,9 @@ class PathsConfig:
         self.deathRate = deathRate
 
 class GameConfig:
-    baseLevels: list    # all available base levels
+    baseLevels: list[BaseLevel]    # all available base levels
     paths: PathsConfig  # settings containing paths between bases
 
-    def __init__(self, baseLevels: list, paths: PathsConfig) -> None:
-        self.baseLevels = [baseLevels]
+    def __init__(self, baseLevels: list[BaseLevel], paths: PathsConfig) -> None:
+        self.baseLevels = baseLevels
         self.paths = paths

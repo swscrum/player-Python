@@ -7,7 +7,7 @@ class BoardAction(PlayerAction):
     player: int         # uid of the owning player
     progress: Progress  # progress of the units on the path
 
-    def __init__(self, uuid: UUID, player: int, progress: int):
+    def __init__(self, uuid: UUID, player: int, progress: Progress):
         self.uuid = uuid
         self.player = player
         self.progress = progress
