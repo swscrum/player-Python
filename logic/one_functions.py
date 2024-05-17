@@ -11,7 +11,8 @@ def getdistance(pos1, pos2) -> int:
         return -1  # TypeError
 
 
-def calculate_idle_move()
+def calculate_idle_move():
+    pass
 
 
 if __name__ == '__main__':
