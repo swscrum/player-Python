@@ -16,3 +16,10 @@ class IncomingUnits:
 
     def __str__(self):
         return str(self.incoming)
+
+    def sum(self, indexes: tuple[int]):
+        sum_units = 0
+        for i in indexes:
+            if i in self.incoming.keys:
+                sum_units += self.incoming[i]
+        return sum_units

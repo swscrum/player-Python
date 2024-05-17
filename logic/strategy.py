@@ -41,12 +41,12 @@ def decide(game_state: GameState) -> List[PlayerAction]:
 
 
 def get_base_list() -> tuple[List[Base], List[Base]]:
+    mybases: List[Base] = []
+    otherbases: List[Base] = []
     for base in gamestate.bases:
-        mybases: List[Base] = []
-        otherbases: List[Base] = []
         if base.player:
             mybases.append(base)
         else:
             otherbases.append(base)
-    
+
     return mybases, otherbases
