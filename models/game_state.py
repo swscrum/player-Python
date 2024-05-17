@@ -20,7 +20,6 @@ class GameState:
         }
         return cls(gameState)
 
-
     def __init__(self, gameState: dict) -> None:
         for action in gameState['actions']:
             self.actions.append(BoardAction(action))

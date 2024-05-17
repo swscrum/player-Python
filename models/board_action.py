@@ -2,6 +2,7 @@ import uuid
 from models.player_action import PlayerAction
 from models.progress import Progress
 
+
 class BoardAction(PlayerAction):
     uuid: uuid          # uuid of the action
     player: int         # uid of the owning player
@@ -19,8 +20,7 @@ class BoardAction(PlayerAction):
         }
         return cls(boardaction)
 
-    def __init__(self, boardaction: dict): 
+    def __init__(self, boardaction: dict):
         self.uuid = boardaction['uuid']
         self.player = boardaction['player']
         self.progress = Progress(boardaction['progress'])
-

@@ -1,9 +1,9 @@
 class Progress:
-    distance: int # distance between the bases
-    traveled: int # distance already traveled
+    distance: int  # distance between the bases
+    traveled: int  # distance already traveled
 
     @classmethod
-    def fromAttributes(cls, distance:int, traveled:int):
+    def fromAttributes(cls, distance: int, traveled: int):
         progress = {
             'distance': distance,
             'traveled': traveled

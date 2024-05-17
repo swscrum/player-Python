@@ -1,12 +1,11 @@
 class PlayerAction:
-    src: int    # uid of source base
-    dest: int   # uid of destination base
-    amount: int # number of bits moved
+    src: int  # uid of source base
+    dest: int  # uid of destination base
+    amount: int  # number of bits moved
 
-
-    def __init__(self, src:int, dest:int, amount:int):
+    def __init__(self, src: int, dest: int, amount: int):
         self.src = src
-        self.dest = dest 
+        self.dest = dest
         self.amount = amount
 
     def __str__(self) -> str:
