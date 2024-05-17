@@ -1,0 +1,62 @@
+name: Build, push and deploy
+
+on:
+  push:
+  workflow_dispatch:
+
+env:
+  DEPLOYMENT_NAME: ${{ vars.TEAMNAME }}
+  DEPLOYMENT_TOKEN: ${{ secrets.TOKEN }}
+  NAMESPACE: ${{ vars.NAMESPACE }}
+
+jobs:
+  build:
+    permissions:
+      packages: write
+    runs-on: ubuntu-latest
+    name: Build app
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@master
+
+      - name: Prepare repository name
+        run: |
+          echo IMAGE_REPOSITORY=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]') >> $GITHUB_ENV
+
+      - name: Log in to registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          tags: ghcr.io/${{ env.IMAGE_REPOSITORY }}:latest
+
+      - name: Install Helm
+        if: github.ref == 'refs/heads/main'
+        uses: azure/setup-helm@v3
+        with:
+          version: 'latest' # default is latest (stable)
+          token: ${{ secrets.GITHUB_TOKEN }} # only needed if version is 'latest'
+        id: install
+
+      - name: Deploy Helm chart
+        if: github.ref == 'refs/heads/main'
+        run: |
+          echo "${{ env.DEPLOYMENT_TOKEN }}" > kubeconfig.yaml
+          chmod 600  kubeconfig.yaml
+          
+          helm upgrade --install \
+          ${{ env.DEPLOYMENT_NAME }} \
+          charts/player \
+          --set "ingress.hosts[0].host=${{ env.DEPLOYMENT_NAME }}.play.bitwars.online" \
+          --set "ingress.hosts[0].paths[0].path=/" \
+          --set "ingress.tls[0].hosts[0]=${{ env.DEPLOYMENT_NAME }}.play.bitwars.online" \
+          --set "ingress.tls[0].secretName=letsencrypt-nginx-${{ env.DEPLOYMENT_NAME }}" \
+          --set "ingress.hosts[0].paths[0].pathType=ImplementationSpecific" \
+          --set "image.repository=ghcr.io/${{ env.IMAGE_REPOSITORY }}" \
+          --namespace ${{ env.NAMESPACE }} \
+          --kubeconfig kubeconfig.yaml \
+          --force
+          
+          rm kubeconfig.yaml
