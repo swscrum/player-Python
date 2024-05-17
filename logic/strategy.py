@@ -1,6 +1,7 @@
 from typing import List
 from models.game_state import GameState
 from models.player_action import PlayerAction
+from models.base import Base
 
 
 def getdistance(x1: int, y1: int, z1: int, x2: int, y2: int, z2: int) -> int:
