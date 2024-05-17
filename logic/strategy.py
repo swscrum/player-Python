@@ -6,8 +6,13 @@ from x_functions import *
 from one_functions import *
 from me_functions import *
 
+gamestate: GameState
 
-def decide(gamestate: GameState) -> List[PlayerAction]:
+
+def decide(game_state: GameState) -> List[PlayerAction]:
+    global gamestate
+    gamestate = game_state
+
     actions: List[PlayerAction] = []
     mybases: List[Base] = []
     otherbases: List[Base] = []
