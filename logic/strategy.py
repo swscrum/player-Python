@@ -21,4 +21,4 @@ def decide(gameState: GameState) -> List[PlayerAction]:
             actions.append(PlayerAction(base.uid, base.uid, gameState.config.base_levels[base.level].upgrade_cost))
 
     # TODO: place your logic here
-    return [PlayerAction(0, 0, 0
+    return actions
