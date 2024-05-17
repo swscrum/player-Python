@@ -17,7 +17,7 @@ def base_overflow(base: Base):
 def upgrade_base(base: Base, upby: int):
     if None == upby:
         upby = base.population / 2
-    return (base.uid, base.uid, upby)
+    return PlayerAction(base.uid, base.uid, upby)
 
 
 if __name__ == '__main__':
