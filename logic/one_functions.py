@@ -1,4 +1,5 @@
 from models.position import Position
+from strategy import *
 
 
 def getdistance(pos1, pos2) -> int:
