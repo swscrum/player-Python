@@ -35,4 +35,6 @@ def decide(gameState: GameState) -> List[PlayerAction]:
     own_bases = get_own_bases(gameState.bases)
     neutral_bases = get_neutral_bases(gameState.bases)
 
+    print(gameState)
+
     return [PlayerAction(0, 0, 0)]
