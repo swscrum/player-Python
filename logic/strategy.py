@@ -7,20 +7,24 @@ from one_functions import *
 from me_functions import *
 
 gamestate: GameState
+actions: List[PlayerAction] = []
+mybases: List[Base] = []
+otherbases: List[Base] = []
 
 
 def decide(game_state: GameState) -> List[PlayerAction]:
     global gamestate
+    global actions
+    global mybases
+    global otherbases
     gamestate = game_state
 
-    actions: List[PlayerAction] = []
-    mybases: List[Base] = []
-    otherbases: List[Base] = []
     for base in gamestate.bases:
         if base.player:
             mybases.append(base)
         else:
             otherbases.append(base)
+
     for base in mybases:
         if base.population > gamestate.config.base_levels[base.level].upgrade_cost:
             actions.append(PlayerAction(base.uid, base.uid, gamestate.config.base_levels[base.level].upgrade_cost))
