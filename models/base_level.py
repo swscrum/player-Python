@@ -1,11 +1,10 @@
 class BaseLevel:
     max_population: int  # number of sustainable bits
-    upgrade_cost: int    # bits required to unlock next upgrade
-    spawn_rate: int      # number uf bits spawned per tick
-
+    upgrade_cost: int  # bits required to unlock next upgrade
+    spawn_rate: int  # number uf bits spawned per tick
 
     @classmethod
-    def fromAttributes(cls, maxPopulation:int, upgradeCost:int, spawnRate:int):
+    def fromAttributes(cls, maxPopulation: int, upgradeCost: int, spawnRate: int):
         baselevel = {
             'max_population': maxPopulation,
             'upgrade_cost': upgradeCost,
