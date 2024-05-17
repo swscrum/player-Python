@@ -1,9 +1,9 @@
 class Game:
-    uid: int  # uid of game
-    tick: int  # tick in game
-    player_count: int  # number of players
-    remaining_players: int  # number of players remaining
-    player: int  # uid of your player
+    uid: int                # uid of game
+    tick: int               # tick in game
+    player_count: int        # number of players
+    remaining_players: int   # number of players remaining
+    player: int             # uid of your player
 
     @classmethod
     def fromAttributes(cls, uid: int, tick: int, playerCount: int, remainingPlayers: int, player: int):

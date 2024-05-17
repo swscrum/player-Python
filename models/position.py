@@ -1,7 +1,7 @@
 class Position:
-    x: int  # x coordinate
-    y: int  # y coordinate
-    z: int  # z coordinate
+    x: int # x coordinate
+    y: int # y coordinate
+    z: int # z coordinate
 
     @classmethod
     def fromAttributes(cls, x: int, y: int, z: int):

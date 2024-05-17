@@ -7,7 +7,6 @@ from models.game_state import GameState
 app = Flask(__name__)
 CORS(app)
 
-
 @app.route('/', methods=['GET'])
 def identify():
     return 'Bitwars Python-Player'

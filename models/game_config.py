@@ -1,9 +1,8 @@
 from models.base_level import BaseLevel
 
-
 class PathsConfig:
-    grace_period: int  # time until groups of bits take damage
-    death_rate: int  # time until groups of bits take damage
+    grace_period: int    # time until groups of bits take damage
+    death_rate: int      # time until groups of bits take damage
 
     @classmethod
     def fromAttributes(cls, gracePeriod: int, deathRate: int):
@@ -16,7 +15,6 @@ class PathsConfig:
     def __init__(self, pathsconfig: dict):
         self.grace_period = pathsconfig['grace_period']
         self.death_rate = pathsconfig['death_rate']
-
 
 class GameConfig:
     base_levels: list[BaseLevel] = []    # all available base levels
