@@ -20,7 +20,6 @@ class GameState:
         }
         return cls(gameState)
 
-
     def __init__(self, gameState: dict) -> None:
         self.actions = gameState['actions']
         self.bases = gameState['bases']
