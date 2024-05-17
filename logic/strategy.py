@@ -11,14 +11,14 @@ def decide(gamestate: GameState) -> List[PlayerAction]:
     actions = List[PlayerAction]
     myBases = List[Base]
     otherBases = List[Base]
-    for base in gameState.bases:
+    for base in gamestate.bases:
         if base.player:
             myBases.append(base)
         else:
             otherBases.append(base)
     for base in myBases:
-        if base.population > gameState.config.base_levels[base.level].upgrade_cost:
-            actions.append(PlayerAction(base.uid, base.uid, gameState.config.base_levels[base.level].upgrade_cost))
+        if base.population > gamestate.config.base_levels[base.level].upgrade_cost:
+            actions.append(PlayerAction(base.uid, base.uid, gamestate.config.base_levels[base.level].upgrade_cost))
 
     # TODO: place your logic here
     return actions
