@@ -1,9 +1,4 @@
-from strategy import gamestate
-from strategy import *
-from models.base import Base
-from x_functions import *
-from one_functions import *
-from me_functions import *
+from logic.strategy import *
 
 
 def units_needed_to_defeat_base(srcid: int, destid: int) -> int:

@@ -1,4 +1,4 @@
-from strategy import *
+from logic.strategy import *
 from models.base_level import BaseLevel
 from models.player_action import PlayerAction
 

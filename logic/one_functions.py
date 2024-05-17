@@ -1,4 +1,4 @@
-from strategy import *
+from logic.strategy import *
 from models.position import Position
 
 
