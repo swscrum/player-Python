@@ -34,7 +34,8 @@ def get_closest_base(own_base, all_existing_bases):
     return shortest_base
 
 def decide(gameState: GameState) -> List[PlayerAction]:
-    own_bases = get_own_bases(gameState.bases)
-    neutral_bases = get_neutral_bases(gameState.bases)
+    # own_bases = get_own_bases(gameState.bases)
+    # neutral_bases = get_neutral_bases(gameState.bases)
+    print(gameState)
 
     return [PlayerAction(0, 0, 0)]
