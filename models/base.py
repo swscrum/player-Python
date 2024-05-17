@@ -13,7 +13,11 @@ class Base:
     @classmethod
     def fromAttributes(cls, position: Position, uid: int, player: int,  population: int, level: int, unitsUntilUpgrade: int):
         base = {
-            'position': position,
+            'position': {
+                'x': position.x,
+                'y': position.y,
+                'z': position.z,
+            },
             'uid': uid,
             'player': player,
             'population': population,
