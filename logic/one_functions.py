@@ -7,3 +7,7 @@ def getdistance(x1: int, y1: int, z1: int, x2: int, y2: int, z2: int) -> int:
 
 def getdistance(pos1: Position, pos2: Position) -> int:
     return int(((pos1.x - pos2.x)**2 + (pos1.y - pos2.y)**2 + (pos1.z - pos2.z)**2) ** 0.5)
+
+
+if __init__ == '__main__':
+    print(getdistance((1, 2, 3), (4, 5, 6)))
