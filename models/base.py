@@ -1,5 +1,6 @@
 
 from models.position import Position
+import math
 
 
 class Base:
@@ -29,3 +30,7 @@ class Base:
         self.population = base['population']
         self.level = base['level']
         self.units_until_upgrade = base['units_until_upgrade']
+
+    def distance(self, pos2):
+        pos1 = self.position
+        return math.floor(math.sqrt((pos1.x - pos2.x)**2 + (pos1.y - pos2.y)**2 + (pos1.z - pos2.z)**2))
