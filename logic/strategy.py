@@ -15,7 +15,7 @@ def get_own_bases(all_existing_bases):
 def get_neutral_bases(all_existing_bases):
     neutral_bases = []
     for base in all_existing_bases:
-        if base.player == 0:
+        if base["player"] == 0:
             neutral_bases.append(base)
 
     return neutral_bases
