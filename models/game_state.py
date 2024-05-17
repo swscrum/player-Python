@@ -5,8 +5,8 @@ from models.game_config import GameConfig
 
 
 class GameState:
-    actions: List[BoardAction] = []
-    bases: List[Base] = []
+    actions: list[BoardAction] = []
+    bases: list[Base] = []
     config: GameConfig
     game: Game
 
@@ -28,5 +28,5 @@ class GameState:
         for base in gameState['bases']:
             self.bases.append(Base(base))
 
-        self.config = gameState['config']
-        self.game = gameState['game']
+        self.config = GameConfig(gameState['config'])
+        self.game = Game(gameState['game'])

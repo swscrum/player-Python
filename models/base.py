@@ -23,7 +23,7 @@ class Base:
         return cls(base)
 
     def __init__(self, base: dict):
-        self.position = base['position']
+        self.position = Position(base['position'])
         self.uid = base['uid']
         self.player = base['player']
         self.population = base['population']

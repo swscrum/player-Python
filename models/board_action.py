@@ -19,5 +19,5 @@ class BoardAction(PlayerAction):
     def __init__(self, boardaction: dict): 
         self.uuid = boardaction['uuid']
         self.player = boardaction['player']
-        self.progress = boardaction['progress']
+        self.progress = Progress(boardaction['progress'])
 
