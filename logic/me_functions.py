@@ -1,4 +1,4 @@
-from strategy import *
+from logic.strategy import *
 from models.game_state import GameState
 from models.base import Base
 
