@@ -2,7 +2,7 @@ from typing import List
 from models.game_state import GameState
 from models.player_action import PlayerAction
 from models.base import Base
-import x_functions
+from x_functions import *
 from one_functions import *
 
 
