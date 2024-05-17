@@ -14,7 +14,7 @@ def decide(game_state: GameState) -> List[PlayerAction]:
     gamestate = game_state
     actions: List[PlayerAction] = []
 
-    mybases, otherbases = get_base_list(game_state)
+    mybases, otherbases = get_base_list()
 
     otherbases = sort_bases_by_pop(otherbases)
 
@@ -40,7 +40,7 @@ def decide(game_state: GameState) -> List[PlayerAction]:
     return actions
 
 
-def get_base_list(game_state: GameState) -> tuple[List[Base], List[Base]]:
+def get_base_list() -> tuple[List[Base], List[Base]]:
     for base in gamestate.bases:
         mybases: List[Base] = []
         otherbases: List[Base] = []
