@@ -8,6 +8,12 @@ def base_overflow(base: Base):
 # returns difference in base population and max population
 # +val: base underflow, -val: base overflow
 
+def attack(attacker: Base, target: Base, amount: int) -> PlayerAction:
+    if units_needed_to_defeat_base(attacker.uid , target.uid) == amount:
+        return PlayerAction(attacker.uid, target.uid, amount)
+    else:
+        return -1
+
 
 if __name__ == '__main__':
     print('hello world')
