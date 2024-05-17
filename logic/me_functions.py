@@ -12,7 +12,7 @@ def min_units_needed_to_defeat_base(srcid:int, destid:int, gamestate:GameState):
     return units_you_need_to_send_for_num_to_arrive(units_at_dest_after_travel, dist, gamestate)
 
 
-def units_you_need_to_send_for_num_to_arrive(units_that_arrive:int, distance:int, gamestate:GameState):
+def adjust_for_death_rate(units_that_arrive: int, distance: int, gamestate: GameState):
     grace_period = gamestate.config.paths.grace_period
     death_rate = gamestate.config.paths.death_rate
     return units_that_arrive + death_rate * max(distance - grace_period, 0)
