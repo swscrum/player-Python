@@ -26,7 +26,7 @@ class GameState:
             self.actions.append(BoardAction(action))
 
         for base in gameState['bases']:
-            self.actions.append(Base(base))
+            self.bases.append(Base(base))
 
         self.config = gameState['config']
         self.game = gameState['game']
