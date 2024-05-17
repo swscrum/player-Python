@@ -1,5 +1,5 @@
 from logic.strategy import *
-from models.base_level import BaseLevel
+from models.base import Base
 from models.player_action import PlayerAction
 
 
@@ -15,6 +15,7 @@ def attack(attacker: Base, target: Base, amount: int) -> PlayerAction:
     if units_needed_to_defeat_base(attacker.uid , target.uid) < amount:
         return PlayerAction(-1, -1, -1)
     return PlayerAction(attacker.uid, target.uid, amount)
+
 
 if __name__ == '__main__':
     print('hello world')
