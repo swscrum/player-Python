@@ -1,8 +1,8 @@
 class Game:
     uid: int                # uid of game
     tick: int               # tick in game
-    playerCount: int        # number of players
-    remainingPlayers: int   # number of players remaining
+    player_count: int        # number of players
+    remaining_players: int   # number of players remaining
     player: int             # uid of your player
 
     @classmethod
@@ -10,8 +10,8 @@ class Game:
         game = {
             'uid': uid,
             'tick': tick,
-            'playerCount': playerCount,
-            'remainingPlayers': remainingPlayers,
+            'player_count': playerCount,
+            'remaining_players': remainingPlayers,
             'player': player
         }
         return cls(game)
@@ -19,6 +19,6 @@ class Game:
     def __init__(self, game: dict):
         self.uid = game['uid']
         self.tick = game['tick']
-        self.playerCount = game['playerCount']
-        self.remainingPlayers = game['remainingPlayers']
+        self.player_count = game['player_count']
+        self.remaining_players = game['remaining_players']
         self.player = game['player']

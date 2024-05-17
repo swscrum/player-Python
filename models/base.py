@@ -8,7 +8,7 @@ class Base:
     player: int             # uid of the owning player
     population: int         # number of bits in the base
     level: int              # level of the base
-    unitsUntilUpgrade: int  # bits needed for until the next upgrade
+    units_until_upgrade: int  # bits needed for until the next upgrade
 
     @classmethod
     def fromAttributes(cls, position: Position, uid: int, player: int,  population: int, level: int, unitsUntilUpgrade: int):
@@ -18,7 +18,7 @@ class Base:
             'player': player,
             'population': population,
             'level': level,
-            'unitsUntilUpgrade': unitsUntilUpgrade
+            'units_until_upgrade': unitsUntilUpgrade
         }
         return cls(base)
 
@@ -28,4 +28,4 @@ class Base:
         self.player = base['player']
         self.population = base['population']
         self.level = base['level']
-        self.unitsUntilUpgrade = base['unitsUntilUpgrade']
+        self.units_until_upgrade = base['units_until_upgrade']
