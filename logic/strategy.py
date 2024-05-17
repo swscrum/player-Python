@@ -9,17 +9,16 @@ def getdistance(x1: int, y1: int, z1: int, x2: int, y2: int, z2: int) -> int:
 
 
 def decide(gamestate: GameState) -> List[PlayerAction]:
-    actions = List[PlayerAction]
-    myBases = List[Base]
-    otherBases = List[Base]
+    actions: List[PlayerAction] = []
+    mybases: List[Base] = []
+    otherbases: List[Base] = []
     for base in gamestate.bases:
         if base.player:
-            myBases.append(base)
+            mybases.append(base)
         else:
-            otherBases.append(base)
-    for base in myBases:
+            otherbases.append(base)
+    for base in mybases:
         if base.population > gamestate.config.base_levels[base.level].upgrade_cost:
             actions.append(PlayerAction(base.uid, base.uid, gamestate.config.base_levels[base.level].upgrade_cost))
 
-    # TODO: place your logic here
     return actions
