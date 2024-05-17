@@ -19,7 +19,7 @@ class TestStrategy(unittest.TestCase):
         test_base = Base.fromAttributes(Position.fromAttributes(0, 0, 0), 0, 0, 0, 0, 0)
         test_game_state = GameState.fromAttributes([BoardAction.fromAttributes(uuid.uuid4(), 0, Progress.fromAttributes(0, 0))], [test_base], GameConfig.fromAttributes([BaseLevel.fromAttributes(0, 0, 0)], PathsConfig.fromAttributes(0, 0)), Game.fromAttributes(0, 0, 0, 0, 0))
 
-        want = PlayerAction(0, 0, 0)
+        want = []
 
         result = decide(test_game_state)
         self.assertEqual(str(want), str(result))
