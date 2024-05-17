@@ -27,6 +27,6 @@ def decide(game_state: GameState) -> List[PlayerAction]:
 
     for base in mybases:
         if base.population > gamestate.config.base_levels[base.level].upgrade_cost:
-            actions.append(PlayerAction(base.uid, base.uid, gamestate.config.base_levels[base.level].upgrade_cost))
+            actions.append(upgrade_base(base))
 
     return actions
