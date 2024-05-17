@@ -1,9 +1,8 @@
-from models.base import Base
+from strategy import *
 from models.base_level import BaseLevel
-from models.game_state import GameState
 
 
-def base_overflow(base: Base, gamestate: GameState):
+def base_overflow(base: Base):
     if base.population > gamestate.config.base_levels[base.level].max_population:
         print("base: overflow")
         return 1 # population is too high, people are dying, overflow
