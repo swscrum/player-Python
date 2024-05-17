@@ -47,7 +47,9 @@ def units_until_upgrade(base: Base) -> int:
     return gamestate.config.base_levels[base.level].upgrade_cost - base.units_until_upgrade
 
 
-def upgrade(base: Base, amount: int) -> PlayerAction:
+def upgrade(base: Base, amount: int = None) -> PlayerAction:
+    if amount is None:
+        amount = base.population / 2
     amount = min(amount, units_until_upgrade(base))
     return PlayerAction(base.uid, base.uid, amount)
 
