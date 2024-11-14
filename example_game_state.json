@@ -1,0 +1,96 @@
+{
+  "actions": [
+    {
+      "uuid": "52c3866e-4481-41ac-8470-cac378788567",
+      "player": 1002,
+      "src": 1,
+      "dest": 2,
+      "amount": 1,
+      "progress": {
+        "distance": 4,
+        "traveled": 4
+      }
+    }
+  ],
+  "bases": [
+    {
+      "uid": 1,
+      "name": "test",
+      "player": 1001,
+      "population": 2,
+      "level": 0,
+      "units_until_upgrade": 0,
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "uid": 2,
+      "name": "another base!",
+      "player": 0,
+      "population": 7,
+      "level": 1,
+      "units_until_upgrade": 0,
+      "position": {
+        "x": 3,
+        "y": -3,
+        "z": 0
+      }
+    },
+    {
+      "uid": 3,
+      "name": "one more",
+      "player": 0,
+      "population": 12,
+      "level": 1,
+      "units_until_upgrade": 0,
+      "position": {
+        "x": 3,
+        "y": 3,
+        "z": 0
+      }
+    }
+  ],
+  "config": {
+    "base_levels": [
+      {
+        "max_population": 20,
+        "upgrade_cost": 1000,
+        "spawn_rate": 1
+      },
+      {
+        "max_population": 40,
+        "upgrade_cost": 1000,
+        "spawn_rate": 2
+      },
+      {
+        "max_population": 80,
+        "upgrade_cost": 1000,
+        "spawn_rate": 3
+      },
+      {
+        "max_population": 100,
+        "upgrade_cost": 1000,
+        "spawn_rate": 4
+      },
+      {
+        "max_population": 200,
+        "upgrade_cost": 1000,
+        "spawn_rate": 25
+      }
+    ],
+    "paths": {
+      "grace_period": 10,
+      "death_rate": 1
+    }
+  },
+  "game": {
+    "uid": 1,
+    "tick": 17,
+    "player_count": 3,
+    "remaining_players": 3,
+    "player": 1
+  }
+}

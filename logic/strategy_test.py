@@ -1,6 +1,5 @@
 import unittest
 import uuid
-
 from logic.strategy import decide
 from models.base import Base
 from models.base_level import BaseLevel
