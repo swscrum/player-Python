@@ -1,26 +1,12 @@
-import uuid
-from models.player_action import PlayerAction
+from uuid import UUID
 from models.progress import Progress
 
-class BoardAction(PlayerAction):
-    uuid: uuid          # uuid of the action
-    player: int         # uid of the owning player
-    progress: Progress  # progress of the units on the path
-
-    @classmethod
-    def fromAttributes(cls, uuid: uuid, player: int, progress: Progress):
-        boardaction = {
-            'uuid': uuid,
-            'player': player,
-            'progress': {
-                'distance': progress.distance,
-                'traveled': progress.traveled,
-            }
-        }
-        return cls(boardaction)
-
-    def __init__(self, boardaction: dict): 
-        self.uuid = boardaction['uuid']
-        self.player = boardaction['player']
-        self.progress = Progress(boardaction['progress'])
+class BoardAction:
+    def __init__(self, uuid: UUID, player: int, src: int, dest: int, amount: int, progress: Progress):
+        self.uuid: UUID = uuid
+        self.player: int = player
+        self.src: int = src
+        self.dest: int = dest
+        self.amount: int = amount
+        self.progress: Progress = progress
 
