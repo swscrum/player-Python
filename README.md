@@ -3,6 +3,7 @@
 Your task is to implement the best bitWars player logic! :)
 
 ## Preparation
+
 1. Choose a team name (BitBattler?)
 2. Fork this repository
 3. Add the following secret:
@@ -16,27 +17,34 @@ Your task is to implement the best bitWars player logic! :)
 ## How it works
 
 ### Install the dependencies
+
 ```bash
 pip3 install -r requirements.txt
 ```
 
 ### Run it locally
+
 Run the player directly:
+
 ```bash
 gunicorn -b 0.0.0.0:3000 main:app
 ```
+
 ### Functionality
+
 This application template provides a HTTP server with a single POST endpoint (/) on port `3000`.
 The bit-dealer sends a POST request containing the current game state as a JSON object.
 Your task is to implement a function which returns a `PlayerAction` as a response.
 You'll find a predefined function `decide()` in this file: `/logic/strategy.py`.
 In this file you can add unit-tests to quickly debug your application locally.
 Run all unit-tests with the following command (executed in the root path of this project):
+
 ```bash
 python -m unittest logic.strategy_test
 ```
 
 ## Example Request Body
+
 ```json
 {
    "actions":[
@@ -55,6 +63,7 @@ python -m unittest logic.strategy_test
    "bases":[
       {
          "uid":1,
+         "name": "test",
          "player":1001,
          "population":2,
          "level":0,
@@ -67,6 +76,7 @@ python -m unittest logic.strategy_test
       },
       {
          "uid":2,
+         "name": "another base!",
          "player":0,
          "population":7,
          "level":1,
@@ -79,6 +89,7 @@ python -m unittest logic.strategy_test
       },
       {
          "uid":3,
+         "name": "one more",
          "player":0,
          "population":12,
          "level":1,
@@ -135,10 +146,12 @@ python -m unittest logic.strategy_test
 
 ## Start the game
 
-Now it's your turn! Start implementing the Strategy function to do more than just do nothing every turn.
+Now it's your turn!
+Start implementing the Strategy function to do more than just do nothing every turn.
 Or rework the whole application.
-You can do what you want, as long as you provide the endpoint that is registered in the game. Have fun!
+You can do what you want, as long as you provide the endpoint that is registered in the game.
+Have fun!
 
 ## Rules
 
-More Infos: https://bitwars.de/
+More Infos: <https://bitwars.de/>
