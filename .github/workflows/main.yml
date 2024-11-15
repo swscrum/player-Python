@@ -31,6 +31,8 @@ jobs:
         with:
           push: true
           tags: ghcr.io/${{ env.IMAGE_REPOSITORY }}:latest
+          build-args: |
+            GIT_HASH=${{ github.sha }}
 
       - name: Install Helm
         if: github.ref == 'refs/heads/main'
@@ -45,7 +47,7 @@ jobs:
         run: |
           echo "${{ env.DEPLOYMENT_TOKEN }}" > kubeconfig.yaml
           chmod 600  kubeconfig.yaml
-          
+
           helm upgrade --install \
           ${{ env.DEPLOYMENT_NAME }} \
           charts/player \
@@ -58,5 +60,7 @@ jobs:
           --namespace ${{ env.NAMESPACE }} \
           --kubeconfig kubeconfig.yaml \
           --force
-          
+
+          kubectl rollout restart deployment/${{ env.DEPLOYMENT_NAME }}-player -n ${{ env.NAMESPACE }} --kubeconfig kubeconfig.yaml
+
           rm kubeconfig.yaml
