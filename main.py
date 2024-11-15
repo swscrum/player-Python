@@ -27,11 +27,15 @@ def index():
 
     # build config
     config_base_levels = [
-        BaseLevel(level["max_population"], level["upgrade_cost"], level["spawn_rate"])
+        BaseLevel(
+            level["max_population"], level["upgrade_cost"], level["spawn_rate"]
+        )
         for level in data["config"]["base_levels"]
     ]
     config_paths = data["config"]["paths"]
-    config_paths = PathConfig(config_paths["grace_period"], config_paths["death_rate"])
+    config_paths = PathConfig(
+        config_paths["grace_period"], config_paths["death_rate"]
+    )
     game_config = GameConfig(config_base_levels, config_paths)
 
     # build current game statistics
@@ -54,7 +58,9 @@ def index():
             base["level"],
             base["units_until_upgrade"],
             Position(
-                base["position"]["x"], base["position"]["y"], base["position"]["z"]
+                base["position"]["x"],
+                base["position"]["y"],
+                base["position"]["z"],
             ),
         )
         for base in data["bases"]
@@ -68,11 +74,14 @@ def index():
             action["src"],
             action["dest"],
             action["amount"],
-            Progress(action["progress"]["distance"], action["progress"]["traveled"]),
+            Progress(
+                action["progress"]["distance"], action["progress"]["traveled"]
+            ),
         )
         for action in data["actions"]
     ]
 
     game_state = GameState(actions, bases, game_config, game)
+    print("Hello world!")
 
     return jsonify([action.serialize() for action in decide(game_state)])
