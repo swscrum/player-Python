@@ -1,7 +1,17 @@
 from models.position import Position
 
+
 class Base:
-    def __init__(self, uid: int, name: str, player: int, population: int, level: int, units_until_upgrade: int, position: Position):
+    def __init__(
+        self,
+        uid: int,
+        name: str,
+        player: int,
+        population: int,
+        level: int,
+        units_until_upgrade: int,
+        position: Position,
+    ):
         self.uid = uid
         self.name = name
         self.player = player

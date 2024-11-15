@@ -3,6 +3,7 @@ from models.board_action import BoardAction
 from models.game import Game
 from models.game_config import GameConfig
 
+
 class GameState:
     def __init__(
         self,

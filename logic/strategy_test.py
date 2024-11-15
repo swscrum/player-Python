@@ -18,9 +18,7 @@ class TestStrategy(unittest.TestCase):
         test_base = Base(0, "test base", 1, 100, 1, 200, Position(0, 0, 0))
 
         test_game_state = GameState(
-            [
-                BoardAction(uuid.uuid4(), 0, 1, 2, 100, Progress(10, 4))
-            ],
+            [BoardAction(uuid.uuid4(), 0, 1, 2, 100, Progress(10, 4))],
             [test_base],
             GameConfig([BaseLevel(0, 0, 0)], PathConfig(0, 0)),
             Game(0, 0, 2, 2, 0),
