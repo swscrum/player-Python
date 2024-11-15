@@ -62,14 +62,16 @@ def decide(gameState: GameState) -> List[PlayerAction]:
         if shortest_distance <= gameState.config.paths.grace_period:
             # Empty base
             if foreign_base.player != 0:
+                # empty base that is within grace_period
                 player_actions.append(travel(own_base, destination_base))
-            # Base of another player
+            # Base of another player with less population than own population within grace_period
             elif foreign_base.population < own_base.population - math.ceil(math.sqrt(own_base.population)):
                 player_actions.append(travel(own_base, foreign_base))
 
+            # Base of another player where distance is above grace_period and own population is larger than enemy population
+            # And leaving some population for guarding own base behind
             elif own_base.population - math.ceil(math.sqrt(own_base.population)) > gameState.config.base_levels[own_base.level-1]:
                 player_actions.append(travel(own_base, own_base))
-
             else:
                 continue
         else:
