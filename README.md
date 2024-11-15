@@ -30,13 +30,21 @@ Run the player directly:
 gunicorn -b 0.0.0.0:3000 main:app
 ```
 
+If you want to test that your code can parse the game state that it receives from the server,
+you can use the following curl command (after running `gunicorn` above):
+
+```sh
+curl -X POST localhost:3000 -H 'Content-Type: application/json' --data @example_game_state.json
+```
+
 ### Functionality
 
 This application template provides a HTTP server with a single POST endpoint (/) on port `3000`.
 The bit-dealer sends a POST request containing the current game state as a JSON object.
-Your task is to implement a function which returns a `PlayerAction` as a response.
-You'll find a predefined function `decide()` in this file: `/logic/strategy.py`.
-In this file you can add unit-tests to quickly debug your application locally.
+Your task is to implement a function that returns a list of `PlayerAction`s as response.
+You'll find a predefined function `decide()` in this file: `./logic/strategy.py`.
+Use this function to implement the logic of your strategy.
+
 Run all unit-tests with the following command (executed in the root path of this project):
 
 ```bash
