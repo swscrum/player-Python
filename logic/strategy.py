@@ -78,4 +78,4 @@ def decide(gameState: GameState) -> List[PlayerAction]:
             player_actions.a
             # Here: Handle logic for when distance to enemy base is above grace_period and potentially from a different player
 
-    return [PlayerAction(0, 0, 0)]
+    return player_actions
