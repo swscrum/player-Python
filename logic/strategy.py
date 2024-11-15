@@ -23,6 +23,7 @@ def decide(gameState: GameState) -> List[PlayerAction]:
     # TODO: place your logic here
 
     own_bases = get_own_bases(gameState.bases)
-    print(own_bases)
+    for base in own_bases:
+        print(base)
 
     return [PlayerAction(0, 0, 0)]
